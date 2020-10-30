@@ -271,7 +271,10 @@ void planeFittingUnitTest()
         for (int i = 0; i < 10; i++){
             points.push_back(threeDPoint(x[i], y[i], z[i]));
         }
-        planeFitting(points);
+        threeDPoint weighted_vector = planeFitting(points);
+        double x_tilt = weighted_vector.z*weighted_vector.x;
+        double y_tilt = weighted_vector.z*weighted_vector.y;
+        qInfo("xTilt: %f yTilt: %f", x_tilt, y_tilt);
     }
 
     qInfo("Test Set 2");
@@ -280,7 +283,10 @@ void planeFittingUnitTest()
         for (int i = 0; i < 10; i++){
             points.push_back(threeDPoint(x1[i], y1[i], z1[i]));
         }
-        planeFitting(points);
+        threeDPoint weighted_vector = planeFitting(points);
+        double x_tilt = weighted_vector.z*weighted_vector.x;
+        double y_tilt = weighted_vector.z*weighted_vector.y;
+        qInfo("xTilt: %f yTilt: %f", x_tilt, y_tilt);
     }
 }
 
